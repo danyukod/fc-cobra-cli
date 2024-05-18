@@ -7,9 +7,9 @@ import (
 	"github.com/spf13/cobra"
 )
 
-// testCmd represents the test command
-var testCmd = &cobra.Command{
-	Use:   "test",
+// categoryCmd represents the category command
+var categoryCmd = &cobra.Command{
+	Use:   "category",
 	Short: "A brief description of your command",
 	Long: `A longer description that spans multiple lines and likely contains examples
 and usage of using your command. For example:
@@ -18,27 +18,20 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		comando, _ := cmd.Flags().GetString("comando")
-		if comando == "ping" {
-			cmd.Println("ping")
-		}
-		if comando == "pong" {
-			cmd.Println("pong")
-		}
+		cmd.Help()
 	},
 }
 
 func init() {
-	rootCmd.AddCommand(testCmd)
-	testCmd.Flags().StringP("comando", "c", "", "Escolha ping ou pong")
-	testCmd.MarkFlagRequired("comando")
+	rootCmd.AddCommand(categoryCmd)
+
 	// Here you will define your flags and configuration settings.
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// testCmd.PersistentFlags().String("foo", "", "A help for foo")
+	// categoryCmd.PersistentFlags().String("foo", "", "A help for foo")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:
-	// testCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	// categoryCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
